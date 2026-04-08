@@ -71,6 +71,14 @@
     </script>
 
     <style>
+        /* Mobile Horizontal Overflow Fixes */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            position: relative;
+        }
+
         /* Custom Typography overrides to match exact specs */
         h1 { font-family: 'Montserrat', sans-serif !important; font-size: 48px !important; line-height: 48px !important; font-weight: 700 !important; color: #1D1D1D; }
         h2 { font-family: 'Montserrat', sans-serif !important; font-size: 48px !important; line-height: 48px !important; font-weight: 600 !important; }
@@ -278,37 +286,37 @@
             <h2 class="text-white text-center mb-16 uppercase tracking-wider text-2xl md:text-3xl lg:text-[32px] leading-snug reveal-up">Key Takeaways: <br><span class="font-normal opacity-90">What You Need To Know About Sciatica Treatment</span></h2>
             
             <div class="space-y-6">
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0">
                         <i data-lucide="check" class="w-5 h-5 text-white"></i>
                     </div>
                     <p class="text-lg leading-relaxed text-white font-medium"><strong class="font-bold tracking-wide text-white">Sciatica affects the sciatic nerve pathway from L4-S3 nerve roots,</strong> with 85-90% of cases caused by lumbar disc herniation creating both mechanical compression and inflammatory responses (Lewis et al., 2007)</p>
                 </div>
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0">
                         <i data-lucide="check" class="w-5 h-5 text-white"></i>
                     </div>
                     <p class="text-lg leading-relaxed text-white font-medium"><strong class="font-bold tracking-wide text-white">Chiropractic manipulation shows 60% success rates compared to 40% for surgery</strong> in treating acute sciatica, with mean Oswestry Disability Index improvements of 25.1 points versus 16.5 points for surgical intervention (McMorland et al., 2010)</p>
                 </div>
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0">
                         <i data-lucide="check" class="w-5 h-5 text-white"></i>
                     </div>
                     <p class="text-lg leading-relaxed text-white font-medium"><strong class="font-bold tracking-wide text-white">90% of sciatica patients experience resolution within 12 weeks of conservative treatment</strong> (Pengel et al., 2003), with reassessment every 2 weeks to track progress and adjust protocols.</p>
                 </div>
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0">
                         <i data-lucide="check" class="w-5 h-5 text-white"></i>
                     </div>
                     <p class="text-lg leading-relaxed text-white font-medium"><strong class="font-bold tracking-wide text-white">Research demonstrates that 50% improvement in pain scores typically occurs by week 4</strong> of chiropractic treatment, with early improvement at 2 weeks being a strong predictor of success (Fritz et al., 2005)</p>
                 </div>
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0">
                         <i data-lucide="check" class="w-5 h-5 text-white"></i>
                     </div>
                     <p class="text-lg leading-relaxed text-white font-medium"><strong class="font-bold tracking-wide text-white">If symptoms persist beyond 6 weeks without improvement, MRI evaluation</strong> and specialist consultation should be considered to rule out surgical indications.</p>
                 </div>
-                <div class="flex items-start gap-4 takeaway-item opacity-0 transform -translate-x-10">
+                <div class="flex items-start gap-4 takeaway-item opacity-0 transform translate-y-10">
                     <div class="mt-1 bg-white/20 p-1.5 rounded-full shrink-0 bg-red-500/80">
                         <i data-lucide="alert-triangle" class="w-5 h-5 text-white"></i>
                     </div>
@@ -867,7 +875,7 @@
                     <h3 class="uppercase tracking-wider m-0">Clinical References</h3>
                     <i data-lucide="chevron-down" class="w-5 h-5 text-dark shrink-0 transform transition-transform duration-300 accordion-icon"></i>
                 </button>
-                <div class="accordion-content px-6 pb-6 text-reference leading-relaxed">
+                <div class="accordion-content px-6 text-reference leading-relaxed">
                     <div class="pt-6 border-t border-gray-200 space-y-3">
                         <p class="pl-4 -indent-4 text-reference">Adams, M. A., & Roughley, P. J. (2006). What is intervertebral disc degeneration, and what causes it? <em>Spine</em>, 31(18), 2151-2161.</p>
                         <p class="pl-4 -indent-4 text-reference">Bronfort, G., Haas, M., Evans, R., Leininger, B., & Triano, J. (2014). Effectiveness of manual therapies: the UK evidence report. <em>The Spine Journal</em>, 14(6), 1040-1049.</p>
@@ -977,6 +985,7 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
             setTimeout(() => {
                 mobileMenu.classList.remove('translate-x-full');
             }, 10);
@@ -984,6 +993,7 @@
 
         closeMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = ''; // Restore background scrolling
             setTimeout(() => {
                 mobileMenu.classList.add('hidden');
             }, 300);
@@ -1079,14 +1089,14 @@
                 });
             });
 
-            // Key Takeaways Stagger reveal
+            // Key Takeaways Stagger reveal (Changed to vertical slide to prevent mobile horizontal overflow)
             gsap.to('.takeaway-item', {
                 scrollTrigger: {
                     trigger: '#takeaways',
                     start: "top 70%",
                 },
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 0.6,
                 stagger: 0.1,
                 ease: "power2.out"
